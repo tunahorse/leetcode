@@ -27,9 +27,10 @@ class Solution:
                 first_end = x_end  # Update 'first_end' to the end x-coordinate of the current balloon
 
         # After iterating through all balloons, return the total number of arrows needed
+        print(arrows)
         return arrows
 
 # Example usage of the Solution class and its findMinArrowShots method:
 solution = Solution()
-points1 = [[10,16],[2,8],[1,6],[7,12]]
+points1 = [[10,16],[2,8],[1,6],[7,2]]
 print(solution.findMinArrowShots(points1))  # Expected output: 2

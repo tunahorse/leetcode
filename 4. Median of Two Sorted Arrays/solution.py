@@ -62,4 +62,22 @@ class Solution:
                 return (max_of_left + min_of_right) / 2
 solution = Solution()
 
+
 print(solution.findMedianSortedArrays([1,3], [2]))  # Expected: 2.0
+
+# Class Definition & Method Signature: A class named Solution is defined with a method findMedianSortedArrays.
+# This method accepts two sorted arrays nums1 and nums2 and returns the median as a float.
+
+# Ensure nums1 is the Smaller Array: To optimize the search space for the binary search, the method ensures that nums1 is the smaller array. 
+# If it's not, nums1 and nums2 are swapped.
+# Initialize Variables:
+# m and n store the lengths of nums1 and nums2, respectively.
+# imin and imax are the starting and ending indices for the binary search in nums1.
+# half_len calculates the halfway point across both arrays, aiding in determining the correct partition.
+# Binary Search Loop: The loop runs until the correct partition is found. It modifies imin and imax to narrow down the search space in nums1.
+# Find Partitions i and j: i is the current partition index in nums1 found by binary search. j is the corresponding partition index in nums2, calculated so that the left side of the partitions contains half of the elements (or one more if the total number of elements is odd).
+# Adjusting i: If nums1[i] is too small, indicating not enough elements on the left side of nums1, imin is adjusted. If nums1[i-1] is too big, indicating too many elements on the left side, imax is adjusted.
+# Correct Partition Found: When the correct partition is found (none of the above conditions are true), it calculates the largest element on the left side (max_of_left) and the smallest element on the right side (min_of_right).
+# Calculate Median: The median is calculated differently based on whether the total number of elements is odd (return max_of_left) or even (return the average of max_of_left and min_of_right).
+# This approach ensures that the time complexity is O(log(min(m, n))) by performing a binary search on the smaller of the two arrays.
+
